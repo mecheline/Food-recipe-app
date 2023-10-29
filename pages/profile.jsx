@@ -1,28 +1,26 @@
-import Homepage from "@/components/Homepage";
 import Layout from "@/components/Layout";
-import NotSignedinPage from "@/components/NotSignedinPage";
+
 import { getSession, useSession } from "next-auth/react";
 
-export default function Home() {
+import dynamic from "next/dynamic";
+const Profile = dynamic(() => import("@/components/Profile"), {
+  ssr: false,
+});
+
+const profile = () => {
   const { data: session } = useSession();
   console.log(session);
   if (session) {
     return (
       <Layout>
-        <Homepage />
-      </Layout>
-    );
-  } else {
-    return (
-      <Layout>
-        <NotSignedinPage />
+        <Profile />
       </Layout>
     );
   }
-}
+};
+export default profile;
 
 export async function getServerSideProps(ctx) {
-  
   return {
     props: {
       session: await getSession(ctx),
