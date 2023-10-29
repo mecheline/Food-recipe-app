@@ -95,16 +95,7 @@ const Navigation = () => {
             )}
           </ul>
           <ul className="navbar-nav me-2 mb-2 mb-lg-0">
-            {/* <li className="nav-item">
-              <Link
-                className="nav-link"
-                aria-current="page"
-                href="/signin"
-                legacyBehavior
-              >
-                <a className="text-decoration-none text-white">Sign in</a>
-              </Link>
-            </li> */}
+           
             {session ? (
               <li class="nav-item">
                 <button className="btn btn-danger" onClick={handleSignout}>

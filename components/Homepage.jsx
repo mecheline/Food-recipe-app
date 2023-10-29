@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useSession } from "next-auth/react";
+
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
-import Image from "next/image";
+
 import { useRouter } from "next/router";
 import data from "./data";
 
@@ -11,7 +11,7 @@ const Homepage = () => {
   const [USD, setUSD] = useState();
   const [NGN, setNGN] = useState();
   const [value, setValue] = useState("");
-  const [search, setSearch] = useState("");
+
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
 
@@ -28,19 +28,13 @@ const Homepage = () => {
     setRecipes(res.data.hits);
   };
 
-  // useEffect(() => {
-  //   getRecipes();
-  // }, [query]);
-
   const getSearch = (e) => {
     e.preventDefault();
     getRecipes();
     postRecipe();
     setQuery("");
   };
-  // useEffect(() => {
-  //   getCurrency();
-  // }, []);
+
   useEffect(() => {
     const dollar = localStorage.getItem("USD");
     if (dollar) {
