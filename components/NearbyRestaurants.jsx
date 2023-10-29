@@ -108,7 +108,6 @@ export default function NearbyRestaurants() {
                   setSelectedPark(restaurant);
                 }}
               >
-                {/* <img src="/skateboarding.svg" alt="Skate Park Icon" /> */}
                 <i class="bi bi-geo-alt-fill"></i>
               </button>
             </Marker>
